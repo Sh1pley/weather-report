@@ -1,3 +1,16 @@
+This demo uses an API key from OpenWeather.
+In order to utilize the existing code base you will need to create a file:
+  - named config.js
+  - placed in the root file ( parent dir with the along side the package.json)
+inside you will need:
+```
+const config = { API_KEY: '<Your API Key Here>' }
+module.exports = { API_KEY: config.API_KEY }
+```
+This will allow you to use everything as it is, and npm start to test the functionality.
+
+--------
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
