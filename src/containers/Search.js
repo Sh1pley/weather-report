@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import config from '../../config'
+// API key lives in config.API_KEY
 
 export default class Search extends Component {
   constructor(props) {
