@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import config from '../../config'
 
 export default class Search extends Component {
   constructor(props) {
@@ -11,18 +12,25 @@ export default class Search extends Component {
   handleChange(event) {
     this.setState({ city: event.target.value })
   }
-   
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+  }
+  
   render() {
     return (
-      <form className='input-group'>
+      <form 
+      className='input-group'
+      onSubmit={this.handleSubmit}>
         <input
-          placeholder='Enter City' 
+          placeholder='Enter a City to get current weather' 
           className='form-control'
           value={this.state.city}
           onChange={this.handleChange} 
           />
         <span className='input-group-btn'>
-          <button type='submit' className='btn btn-secondary'>Submit</button>
+          <button type='submit' className='btn'>Submit</button>
         </span>
       </form>
     )
