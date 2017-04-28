@@ -6,11 +6,13 @@ class CityList extends Component {
     let iconCode = cityData.weather[0].icon
     let iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`
     let fahrenheit = ((cityData.main.temp - 273.15) * 1.8) + 32
+    let timestamp = new Date(cityData.dt*1000).toUTCString()
     return (
       <tr key={cityData.id}>
         <td><h3>{cityData.name}</h3></td>
         <td><h3>{Math.floor(fahrenheit)}</h3></td>
         <td><img src={iconUrl} alt='img missing'></img><br/>{cityData.weather[0].description}</td>
+        <td><h4>{timestamp}</h4></td>
       </tr>
     )
   }
@@ -21,7 +23,8 @@ class CityList extends Component {
           <tr>
             <th>City</th>
             <th>Current Temp</th>
-            <th>Outside</th>          
+            <th>Outside</th>        
+            <th>Time</th>        
           </tr>
         </thead>
         <tbody>
