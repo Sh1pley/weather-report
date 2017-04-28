@@ -1,4 +1,5 @@
 import config from '../../config'
+import axios from 'axios'
 // API key lives in config.API_KEY
 // have to make your own!
 
@@ -8,7 +9,7 @@ export const FETCH_WEATHER = 'FETCH_WEATHER';
 
 export function fetchWeather(city) {
   const searchUrl = `${baseUrl}&q=${city}`;
-  const request = fetch(searchUrl)
+  const request = axios.get(searchUrl)
   return {
     type: FETCH_WEATHER,
     payload: request
