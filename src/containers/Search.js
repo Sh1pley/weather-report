@@ -34,7 +34,7 @@ class Search extends Component {
           onChange={this.handleChange} 
           />
         <span className='input-group-btn'>
-          <button type='submit' className='btn'>Submit</button>
+          <button type='submit' className='btn btn-primary'>Submit</button>
         </span>
       </form>
     )
