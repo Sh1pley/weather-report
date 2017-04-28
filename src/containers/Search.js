@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-import config from '../../config'
-// API key lives in config.API_KEY
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { fetchWeather } from '../actions/index'
 
-export default class Search extends Component {
+class Search extends Component {
   constructor(props) {
     super(props);
 
     this.state = { city: '' };
-    this.handleChange = this.handleChange.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -16,7 +18,8 @@ export default class Search extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
+    this.props.fetchWeather(this.state.city);
+    this.setState({city: ''})
   }
   
   render() {
@@ -37,3 +40,9 @@ export default class Search extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ fetchWeather }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(Search);
